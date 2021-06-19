@@ -2,7 +2,7 @@ import socket
 import os
 import select
 PORT = 6996
-HOST = '127.0.0.1'
+HOST = '192.168.42.144'
 def main():
 	print("--STARTING--")
 	sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
