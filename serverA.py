@@ -1,7 +1,7 @@
 import socket
 import os
 import select
-PORT = 9669
+PORT = 6996
 HOST = '127.0.0.1'
 def main():
 	print("--STARTING--")
@@ -9,13 +9,13 @@ def main():
 	sock.bind((HOST,PORT))
 	sock.listen(2)
 	print("--LISTENING--")
-	while True:
-		(s,clientAddr) = sock.accept()
-		print(f"[NEW CONNECTION from ]{clientAddr}.")
-		data = s.recv(1024).decode('ascii')
-		if data:
-			print(data)
-		sock.close()
+	(s,clientAddr) = sock.accept()
+	print(f"[NEW CONNECTION from ]{clientAddr}.")
+	with s:
+		while True:
+			data = s.recv(1024).decode('ascii')
+			if data:
+				print(data)
 
 
 if __name__=="__main__":
